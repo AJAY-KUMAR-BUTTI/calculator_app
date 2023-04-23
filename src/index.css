@@ -11,3 +11,25 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.margin {
+  margin-bottom: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+span{
+  color: green;
+  font-weight: bold;
+}
+span + span {
+  color: orange;
+}
+.heading {
+  background-color: yellow;
+  text-decoration: underline;
+  color: black;
+}
+.header {
+  margin-bottom: 50px;
+}
