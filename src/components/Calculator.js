@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import  { Button, TextField, Stack, Typography } from '@mui/material'
+import BackspaceIcon from '@mui/icons-material/Backspace';
 
 
 function Calculator() {
@@ -8,6 +9,9 @@ function Calculator() {
     const submitHandler = () => {
         setResult(eval(input));
         setInput('')
+    }
+    const reset = () => {
+        setResult(0)
     }
     return (
         <Stack spacing={1} >
@@ -23,21 +27,25 @@ function Calculator() {
                 <Button variant='contained' color='secondary' onClick={() => setInput(input+'2')}>2</Button>
                 <Button variant='contained' color='secondary' onClick={() => setInput(input+'3')}>3</Button>
                 <Button variant='contained' color='secondary' onClick={() => setInput(input+'4')}>4</Button> 
-                <Button variant='contained' color='secondary' onClick={() => setInput(input+'5')}>5</Button>
             </Stack>
             <Stack spacing={1} direction='row' className='margin'>
+                <Button variant='contained' color='secondary' onClick={() => setInput(input + '5')}>5</Button>
                 <Button variant='contained' color='secondary' onClick={() => setInput(input + '6')}>6</Button>
                 <Button variant='contained' color='secondary' onClick={() => setInput(input + '7')}>7</Button>
                 <Button variant='contained' color='secondary' onClick={() => setInput(input + '8')}>8</Button>
-                <Button variant='contained' color='secondary' onClick={() => setInput(input + '9')}>0</Button>
-                <Button variant='contained' color='secondary' onClick={() => setInput(input + '0')}>9</Button> <br />
             </Stack>
             <Stack spacing={1} direction='row' className='margin' >
+                <Button variant='contained' color='secondary' onClick={() => setInput(input + '0')}>9</Button> <br />
+                <Button variant='contained' color='secondary' onClick={() => setInput(input + '9')}>0</Button>
                 <Button variant='contained' color='secondary' onClick={() => setInput(input + '+')}>+</Button>
                 <Button variant='contained' color='secondary' onClick={() => setInput(input + '-')}>-</Button>
+            </Stack>
+            <Stack spacing={1} direction="row" className='margin'>
                 <Button variant='contained' color='secondary' onClick={() => setInput(input + '*')}>*</Button>
                 <Button variant='contained' color='secondary' onClick={() => setInput(input + '/')}>/</Button>
-                <Button variant='contained' color='secondary' onClick={() => setInput(input + '')}>clear</Button>
+                <Button variant='contained' color='secondary' onClick={() => setInput(input.slice(0, input.length - 1))}>{<BackspaceIcon />}</Button>
+                <Button variant='contained' color='secondary' onClick={() => setInput('')} style={{ fontWeight : 'bold', fontSize : '15px'}}>C</Button>
+                <Button variant='contained' color='secondary' onClick={reset} style={{ fontWeight : 'bold', fontSize : '15px'}}>AC</Button>
             </Stack>
         </Stack>
     )

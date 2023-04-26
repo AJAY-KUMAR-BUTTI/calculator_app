@@ -33,3 +33,7 @@ span + span {
 .header {
   margin-bottom: 50px;
 }
+.button {
+  font-weight: bold;
+  font-size: 50px;
+}
